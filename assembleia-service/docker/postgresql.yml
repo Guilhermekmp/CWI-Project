@@ -1,0 +1,10 @@
+version: '2'
+services:
+  postgresql:
+    image: postgres:11.5-alpine
+    environment:
+      - POSTGRES_USER=dev
+      - POSTGRES_PASSWORD=dev
+      - POSTGRES_DB=assembleia
+    ports:
+      - 5429:5432

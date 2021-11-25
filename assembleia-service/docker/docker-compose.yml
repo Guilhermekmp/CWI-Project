@@ -1,0 +1,6 @@
+version: '2'
+services:
+  postgresql-assembleia:
+    extends:
+      service: postgresql
+      file: postgresql.yml
