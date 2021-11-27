@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
@@ -21,7 +22,8 @@ public class Pauta implements Serializable {
   private static final long serialVersionUID = -6209994590025554494L;
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PAUTA_SEQ")
+  @SequenceGenerator(name = "PAUTA_SEQ", sequenceName = "PAUTA_SEQ", initialValue = 1, allocationSize=1)
   @Column(name = "ID_PAUTA")
   private Long id;
 
