@@ -8,9 +8,9 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface AssociadoMapper {
 
-  @Mapping(target = "sessaoVotacao.id", source = "idSessaoVotacao")
+  @Mapping(target = "pauta.id", source = "idPauta")
   Associado toEntity(AssociadoDTO dto);
 
-  @Mapping(target = "idSessaoVotacao", source = "sessaoVotacao.id")
+  @Mapping(target = "idPauta", source = "pauta.id")
   AssociadoDTO toDTO(Associado entity);
 }

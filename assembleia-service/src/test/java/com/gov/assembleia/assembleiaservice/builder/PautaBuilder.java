@@ -8,6 +8,8 @@ import com.gov.assembleia.assembleiaservice.util.TestConstantsUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Component
 public class PautaBuilder extends BuilderPadrao<Pauta,PautaDTO>{
 
@@ -32,6 +34,12 @@ public class PautaBuilder extends BuilderPadrao<Pauta,PautaDTO>{
   @Override
   protected Pauta persistir(Pauta entidade) {
     PautaDTO dto = service.salvar(mapper.toDTO(entidade));
+    return mapper.toEntity(dto);
+  }
+
+  public Pauta construirComVotacaoAberta(){
+    PautaDTO dto = mapper.toDTO(construir());
+    dto = service.abrirSessaoVotacao(dto.getId(), LocalDateTime.now().plusSeconds(2));
     return mapper.toEntity(dto);
   }
 }

@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -30,6 +31,12 @@ public class Pauta implements Serializable {
   @Column(name = "NOME_PAUTA", length = 200, nullable = false)
   private String nomePauta;
 
-  @OneToMany(fetch = FetchType.LAZY,mappedBy = "pauta")
-  private List<SessaoVotacao> sessaoVotacaos;
+  @Column(name = "HORARIO_ABERTURA_VOTACAO", nullable = true)
+  private LocalDateTime horarioAberturaVotacao;
+
+  @Column(name = "HORARIO_TERMINO_VOTACAO", nullable = true)
+  private LocalDateTime horarioTerminoVotacao;
+
+  @OneToMany(fetch = FetchType.LAZY,mappedBy = "pauta", orphanRemoval = true)
+  private List<Associado> associados;;
 }

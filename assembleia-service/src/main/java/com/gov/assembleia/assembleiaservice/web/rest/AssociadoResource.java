@@ -2,7 +2,6 @@ package com.gov.assembleia.assembleiaservice.web.rest;
 
 import com.gov.assembleia.assembleiaservice.service.AssociadoService;
 import com.gov.assembleia.assembleiaservice.service.dto.AssociadoDTO;
-import com.gov.assembleia.assembleiaservice.service.dto.SessaoVotacaoDTO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

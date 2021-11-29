@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Setter
@@ -16,5 +17,10 @@ public class PautaDTO implements Serializable {
 
   private String nomePauta;
 
-  private List<SessaoVotacaoDTO> sessaoVotacaos;
+  private LocalDateTime horarioAberturaVotacao;
+
+  private LocalDateTime horarioTerminoVotacao;
+
+  private List<AssociadoDTO> associados;
+
 }

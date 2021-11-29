@@ -4,7 +4,7 @@ import com.gov.assembleia.assembleiaservice.domain.Pauta;
 import com.gov.assembleia.assembleiaservice.service.dto.PautaDTO;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring", uses = SessaoVotacaoMapper.class)
+@Mapper(componentModel = "spring")
 public interface PautaMapper {
 
   Pauta toEntity(PautaDTO dto);

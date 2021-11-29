@@ -76,7 +76,7 @@ public class AssociadoResourceIT extends AbstractTestIT<AssociadoResource> {
   public void salvarVotoAssociadoDuplicado(){
     Associado associado = builder.construir();
     AssociadoDTO dto = builder.construirEntidadeDTO();
-    dto.setIdSessaoVotacao(associado.getSessaoVotacao().getId());
+    dto.setIdPauta(associado.getPauta().getId());
 
     getMockMvc().perform(post(API_VOTAR)
                     .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -89,7 +89,7 @@ public class AssociadoResourceIT extends AbstractTestIT<AssociadoResource> {
   @SneakyThrows
   public void salvarVotoAssociadoComSessaoTerminada(){
 
-    AssociadoDTO dto = builder.construirEntidadeDTOComSessaoCurta();
+    AssociadoDTO dto = builder.construirEntidadeDTO();
     Thread.sleep(2000);
 
     getMockMvc().perform(post(API_VOTAR)

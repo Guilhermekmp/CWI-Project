@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AssociadoRepository extends JpaRepository<Associado, Long> {
 
-  @Query("SELECT CASE WHEN count(a) > 0 THEN true ELSE false END FROM Associado a WHERE a.cpf = :#{#associado.cpf} AND a.sessaoVotacao.id = :#{#associado.idSessaoVotacao}")
+  @Query("SELECT CASE WHEN count(a) > 0 THEN true ELSE false END FROM Associado a WHERE a.cpf = :#{#associado.cpf} AND a.pauta.id = :#{#associado.idPauta}")
   Boolean verificarStatusVotoAssociado(@Param("associado") AssociadoDTO dto);
 }

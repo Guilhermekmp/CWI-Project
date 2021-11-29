@@ -22,5 +22,5 @@ public class AssociadoDTO implements Serializable {
   private SimNaoEnum voto;
 
   @NotNull
-  private Long idSessaoVotacao;
+  private Long idPauta;
 }

@@ -8,7 +8,7 @@ public class ConstantsUtil {
   public static final String ERRO_CPF_JA_VOTOU = "O cpf informado já votou e não pode votar denovo";
   public static final String ERRO_DATA_TERMINO_PASSADO = "Não foi possivel salvar, devido a data termino da sessão ser antes da data de abertura";
   public static final String ERRO_PAUTA_NAO_ENCONTRADA = "Não foi possivel buscar a pauta pelo id informado";
-  public static final String ERRO_SESSAO_ABERTA = "Existe ainda uma sessão aberta";
+  public static final String ERRO_PAUTA_VOTADA = "A pauta informada, já foi votada";
   public static final String ERRO_SESSAO_NAO_ENCONTRADA = "Não foi possivel buscar a quantidade de votos da sessao pelo id informado";
   public static final String ERRO_VOTACAO_ENCERRADA = "A votação dessa sessão já foi encerrada";
 

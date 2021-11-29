@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequestMapping("/api/pautas")
@@ -30,5 +33,18 @@ public class PautaResource {
   public ResponseEntity<PautaDTO> salvar(@RequestBody PautaDTO pautaDTO){
     log.debug("Requisição REST request para salvar Pauta:", pautaDTO);
     return ResponseEntity.ok(service.salvar(pautaDTO));
+  }
+
+  @GetMapping("/abrir-votacao/{id}")
+  public ResponseEntity<PautaDTO> salvarAberturaSessao(@PathVariable Long id,
+                                                       @RequestParam(value = "horarioTermino", required = false) LocalDateTime horarioTerminoVotacao){
+    log.debug("Requisição REST request para salvar a abertura de uma Sessao de Votacao na pauta com id:", id);
+    return ResponseEntity.ok(service.abrirSessaoVotacao(id,horarioTerminoVotacao));
+  }
+
+  @GetMapping("/contar-votos/{id}")
+  public ResponseEntity<String> buscarVotosPorId(@PathVariable Long id){
+    log.debug("Requisição REST request para buscar a quantidade de votos na SessaoVotacao por id");
+    return ResponseEntity.ok(service.buscarQuantidadeVotos(id));
   }
 }

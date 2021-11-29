@@ -37,5 +37,5 @@ public class Associado implements Serializable {
   private SimNaoEnum voto;
 
   @ManyToOne(fetch = FetchType.LAZY, optional = false)
-  private SessaoVotacao sessaoVotacao;
+  private Pauta pauta;
 }
