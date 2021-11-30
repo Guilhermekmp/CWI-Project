@@ -4,6 +4,9 @@ public class ConstantsUtil {
 
   public static final Long VALOR_PADRAO_DATA_TERMINO = 1L;
 
+  public static final String ASSOCIADO_PODE_VOTAR = "ABLE_TO_VOTE";
+  public static final String ASSOCIADO_NAO_PODE_VOTAR = "UNABLE_TO_VOTE";
+
   public static final String ERRO_CPF_INVALIDO = "O cpf informado é inválido";
   public static final String ERRO_CPF_JA_VOTOU = "O cpf informado já votou e não pode votar denovo";
   public static final String ERRO_DATA_TERMINO_PASSADO = "Não foi possivel salvar, devido a data termino da sessão ser antes da data de abertura";

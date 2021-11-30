@@ -3,6 +3,7 @@ package com.gov.assembleia.assembleiaservice.web.rest;
 import com.gov.assembleia.assembleiaservice.builder.AssociadoBuilder;
 import com.gov.assembleia.assembleiaservice.config.AbstractTestIT;
 import com.gov.assembleia.assembleiaservice.domain.Associado;
+import com.gov.assembleia.assembleiaservice.domain.Pauta;
 import com.gov.assembleia.assembleiaservice.service.AssociadoService;
 import com.gov.assembleia.assembleiaservice.service.dto.AssociadoDTO;
 import com.gov.assembleia.assembleiaservice.util.TestConstantsUtil;
@@ -96,6 +97,17 @@ public class AssociadoResourceIT extends AbstractTestIT<AssociadoResource> {
                     .contentType(TestUtil.APPLICATION_JSON_UTF8)
                     .content(TestUtil.convertObjectToJsonBytes(dto)))
             .andExpect(status().isBadRequest());
+  }
+
+  @Test
+  @DisplayName("Buscar Status de voto do Associado pelo CPF")
+  @SneakyThrows
+  public void buscarStatusAssociado(){
+
+    AssociadoDTO dto = builder.construirEntidadeDTO();
+
+    getMockMvc().perform(get(API + dto.getCpf() + "/" + dto.getIdPauta()))
+            .andExpect(status().isOk());
   }
 
 }
